@@ -1,0 +1,55 @@
+img {
+  max-width: 100%;
+}
+
+.btn-utama {
+  background-color: #ce3547;
+  border-color: #ce3547;
+  color: #ffffff;
+}
+
+.btn-utama:hover {
+  background-color: #051829;
+  border-color: #051829;
+  color: #ffffff;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ce3547;
+}
+
+.header {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../images/header-bg.jpeg");
+  background-size: cover;
+  background-position: center;
+  min-height: 80vh;
+}
+
+.header h1 {
+  font-size: 100px;
+  font-weight: bold;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.header p {
+  font-size: 20px;
+}
+
+section {
+  padding: 70px 0;
+}
+
+section .subtitle {
+  color: #ce3547;
+}
+
+.offer .card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}

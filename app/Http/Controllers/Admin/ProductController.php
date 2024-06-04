@@ -1,0 +1,83 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Models\ProductImage;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
+class ProductController extends Controller
+{
+    public function index()
+    {
+        return view('pages.admin.products.index', [
+            'title' => 'Produk',
+            'products' => Product::paginate(10)
+        ]);
+    }
+
+    public function create()
+    {
+        return view('pages.admin.products.create', [
+            'title' => 'Tambah Produk Baru',
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        $product = Product::create($data);
+        $product_slug = Str::slug($product->name);
+        foreach ($request->file('images') as $key => $image) {
+            // $image_path = $image->store('products', 'public');
+            $image_path = $image->storeAs('products', 'produk-' . $product_slug . '-' . date('d-m-y-h-i-s') . '-' . ++$key . '.jpg', 'public');
+            ProductImage::create([
+                'product_id' => $product->id,
+                'image' => $image_path
+            ]);
+        }
+
+        return redirect()->route('produk.index')->with('success', 'Produk berhasil ditambahkan');
+    }
+
+    public function edit($id)
+    {
+        return view('pages.admin.products.edit', [
+            'title' => 'Edit Produk',
+            'product' => Product::find($id)
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+
+        $product = Product::find($id)->update($data); // UPDATE products SET .......... WHERE id=$id
+        $product_slug = Str::slug($request->name);
+        foreach ($request->file('images') as $key => $image) {
+            // $image_path = $image->store('products', 'public');
+            $image_path = $image->storeAs('products', 'produk-' . $product_slug . '-' . date('d-m-y-h-i-s') . '-' . ++$key . '.jpg', 'public');
+            ProductImage::create([
+                'product_id' => $id,
+                'image' => $image_path
+            ]);
+        }
+
+        return redirect()->route('produk.edit', $id)->with('success', 'Produk berhasil diedit');
+    }
+
+    public function destroy($id)
+    {
+        Product::find($id)->delete();
+        return redirect()->route('produk.index')->with('success', 'Produk berhasil dihapus');
+    }
+
+    public function destroy_image($id)
+    {
+        ProductImage::find($id)->delete();
+        return redirect()->back();
+    }
+}
