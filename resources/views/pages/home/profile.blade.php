@@ -5,16 +5,16 @@
         <div class="container">
             <h1 class="mb-5">Edit Profile</h1>
 
-            <h5 class="fw-semibold mb-3">Informasi Pribadi</h5>
+            <h5 class="fw-semibold mb-3">Personal Information</h5>
             <div class="card mb-5">
                 <div class="card-body p-4">
-                    <button class="mb-4 btn btn-light d-flex align-items-center gap-1" type="button" onclick="edit()">
+                    <button class="btn btn-primary px-4" type="button" onclick="edit()">
                         <i class="bx bx-edit"></i> Edit Profile
                     </button>
 
                     <table id="tableProfile" class="table mb-2">
                         <tr>
-                            <td>Nama</td>
+                            <td>Name</td>
                             <td>{{ Auth::user()->name }}</td>
                         </tr>
                         <tr>
@@ -22,10 +22,10 @@
                             <td>{{ Auth::user()->email }}</td>
                         </tr>
                         <tr>
-                            <td>Nomor Telepon</td>
+                            <td>Phone Number</td>
                             <td>
                                 @if (Auth::user()->phone_number == '')
-                                    <span class="text-danger">Nomor Telepon belum diisi</span>
+                                    <span class="text-danger">Phone Number has not been filled!</span>
                                 @else
                                     {{ Auth::user()->phone_number }}
                                 @endif
@@ -35,7 +35,7 @@
                             <td>Alamat</td>
                             <td>
                                 @if (Auth::user()->address == '')
-                                    <span class="text-danger">Nomor Telepon belum diisi</span>
+                                    <span class="text-danger">Address has not been filled!</span>
                                 @else
                                     {{ Auth::user()->address }}
                                 @endif
@@ -48,47 +48,47 @@
                         @csrf @method('PUT')
 
                         <div class="mb-3">
-                            <label for="name">Nama Lengkap</label>
+                            <label for="name">Name</label>
                             <input type="text" name="name" id="name" class="form-control"
                                 value="{{ Auth::user()->name }}">
                         </div>
                         <div class="mb-3">
-                            <label for="email">Alamat Email</label>
+                            <label for="email">Email Address</label>
                             <input type="text" name="email" id="email" class="form-control"
                                 value="{{ Auth::user()->email }}">
                         </div>
                         <div class="mb-3">
-                            <label for="password">Password (Masukkan password jika ingin mengubahnya)</label>
+                            <label for="password">Password (Insert New Password if needed)</label>
                             <input type="password" name="password" id="password" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="phone_number">Nomor Telepon</label>
+                            <label for="phone_number">Phone Number</label>
                             <input type="text" name="phone_number" id="phone_number" class="form-control"
                                 value="{{ Auth::user()->phone_number }}">
                         </div>
                         <div class="mb-3">
-                            <label for="address">Alamat</label>
+                            <label for="address">Address</label>
                             <textarea name="address" id="address" cols="30" rows="3" class="form-control">{{ Auth::user()->address }}</textarea>
                         </div>
 
-                        <button class="btn btn-utama" type="submit">Simpan Perubahan</button>
+                        <button class="btn btn-primary px-4" type="submit">Save Changes</button>
                     </form>
                 </div>
             </div>
 
-            <h5 class="fw-semibold mb-3">Peliharaan</h5>
+            <h5 class="fw-semibold mb-3">Pets</h5>
             <div class="card mb-5">
                 <div class="card-body p-4">
-                    <button class="btn btn-utama py-2 mb-4" type="button" data-bs-toggle="modal" data-bs-target="#addPet">
-                        <i class="bx bx-plus"></i> Tambah Peliharaan
+                    <button class="btn btn-primary px-4" type="button" data-bs-toggle="modal" data-bs-target="#addPet">
+                        <i class="bx bx-plus"></i> Add Pet
                     </button>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Peliharaan</th>
-                                    <th>Jenis Peliharaan</th>
+                                    <th>Pet Name</th>
+                                    <th>Pet Type</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -108,7 +108,7 @@
                                                     @csrf @method('DELETE')
                                                     <button type="submit" onclick="return confirm('Kamu yakin?')"
                                                         class="btn btn-light btn-sm">
-                                                        <i class="bx bx-trash"></i> Hapus
+                                                        <i class="bx bx-trash"></i> Delete
                                                     </button>
                                                 </form>
                                             </div>
@@ -131,20 +131,20 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="mb-3">
-                                                            <label for="pet_name">Nama Peliharaan</label>
+                                                            <label for="pet_name">Pet Name</label>
                                                             <input type="text" name="pet_name" id="pet_name"
                                                                 class="form-control" value="{{ $item->pet_name }}">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="pet_type">Jenis Peliharaan</label>
+                                                            <label for="pet_type">Pet Type</label>
                                                             <select name="pet_type" id="pet_type" class="form-select">
                                                                 <option value="Kucing"
                                                                     {{ $item->pet_type == 'Kucing' ? 'SELECTED' : '' }}>
-                                                                    Kucing
+                                                                    Cat
                                                                 </option>
                                                                 <option value="Anjing"
                                                                     {{ $item->pet_type == 'Anjing' ? 'SELECTED' : '' }}>
-                                                                    Anjing
+                                                                    Dog
                                                                 </option>
                                                             </select>
                                                         </div>
@@ -152,8 +152,7 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-utama">Simpan
-                                                            Perubahan</button>
+                                                        <button type="submit" class="btn btn-utama">Save Changes</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -175,25 +174,25 @@
                     @csrf
 
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="addPetLabel">Tambah Peliharaan</h1>
+                        <h1 class="modal-title fs-5" id="addPetLabel">Add Pet</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="pet_name">Nama Peliharaan</label>
+                            <label for="pet_name">Pet Name</label>
                             <input type="text" name="pet_name" id="pet_name" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="pet_type">Jenis Peliharaan</label>
+                            <label for="pet_type">Pet Type</label>
                             <select name="pet_type" id="pet_type" class="form-select">
-                                <option value="Kucing">Kucing</option>
-                                <option value="Anjing">Anjing</option>
+                                <option value="Kucing">Cat</option>
+                                <option value="Anjing">Dog</option>
                             </select>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-utama">Simpan Baru</button>
+                        <button type="submit" class="btn btn-utama">Save New</button>
                     </div>
                 </form>
             </div>
