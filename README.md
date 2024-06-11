@@ -1,66 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Pet Hospital Website-Based Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Overview
 
-## About Laravel
+Pet Hospital is a website-based platform that is designed to help pet owners manage their pet healthcare and supplies conveniently, from anywhere and anytime. This website enables pet owners to make reservation for their pet online and purchasing their pet supplies online, ensuring a seamless services for the pet owners.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Online Booking for Reservations
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   Appointment Scheduling: Pet owners can easily schedule appointments for their pets using our intuitive booking interface.
+-   Service Selection: Users can select from a variety of services, including general check-ups, vaccinations, emergency care, and specialist consultations.
 
-## Learning Laravel
+Online Shop
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-   Product Catalog: A wide range of pet care products, including food, toys, and health supplements, are available for purchase.
+-   Secure Checkout: A secure payment is integrated to ensure safe transactions.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Additional Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-   Profile Settings: Pet owners can modify their profile according their own needs.
+-   Pet Health Records: Access to a pet's complete health record, including visit history, vaccination dates, and prescribed treatments.
+-   Support: Dedicated support section for user inquiries and assistance with the booking and purchasing processes.
 
-## Laravel Sponsors
+Technologies Used
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+-   Frontend: HTML5, CSS3, JavaScript, Bootstrap
+-   Backend: PHP, Laravel
+-   Database: MySQL
 
-### Premium Partners
+Installation
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+To set up the Pet Hospital Management System for development or testing environments, follow these steps:
 
-## Contributing
+1. Clone the repository:
+    ```
+    git clone https://github.com/Priskila09/pet-hospital-laravel.git
+    ```
+2. Navigate to the project directory:
+    ```
+    cd pet-hospital-system
+    ```
+3. Install dependencies:
+    ```
+    composer install
+    npm install
+    ```
+4. Set up the environment file:
+   Set the environment based on your need.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. Run database migrations and seeders (seeders are optional):
+    ```
+    php artisan migrate --seed
+    ```
+6. **Start the development server:**
+    ```
+    php artisan serve
+    ```
+    Access the application via `http://localhost:8000/`.
 
-## Code of Conduct
+Usage
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+To book an appointment or purchase products:
 
-## Security Vulnerabilities
+1. Register/Login: Users must register or log in to access personalized features.
+2. Booking: Navigate to the 'Book Reservation' section to select a service and schedule a time.
+3. Shopping: Visit the 'Shop' section to browse products and add items to your cart for purchase.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Contribution
 
-## License
+Contributions are welcome, and please follow the guidelines below:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+-   **Fork the repository** and create your branch from `main`.
+-   **Write clear meaningful commit messages.**
+-   **Ensure your changes are well tested.**
+-   Submit a **pull request**.
+
+Contact
+
+For support or inquiries, please email us at support@pethospital.com.
