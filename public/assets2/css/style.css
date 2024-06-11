@@ -60,6 +60,39 @@ a {
     border-color: var(--primary-alt-color);
 }
 
+.bx-edit {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.bx-edit:hover {
+    background-color: var(--primary-alt-color);
+    border-color: var(--primary-alt-color);
+}
+
+.bx-plus {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.bx-plus:hover {
+    background-color: var(--primary-alt-color);
+    border-color: var(--primary-alt-color);
+}
+
+.bx-trash {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.bx-trash:hover {
+    background-color: var(--primary-alt-color);
+    border-color: var(--primary-alt-color);
+}
+
 header,
 section {
     padding: 100px 0;
