@@ -3,7 +3,7 @@
 @section('content')
     <div class="d-flex align-items-center justify-content-between mb-5">
         <h2 class="mb-0">List Doctors</h2>
-        <a href="{{ route('doctors.create') }}" class="btn btn-pink">Create New Doctors</a>
+        <a href="{{ route('dokter.create') }}" class="btn btn-pink">Create New Doctors</a>
     </div>
 
     @if (session('success'))
