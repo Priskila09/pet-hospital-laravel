@@ -3,10 +3,10 @@
 @section('content')
     <div class="d-flex align-items-center justify-content-between mb-5">
         <h2 class="mb-0">Create New</h2>
-        <a href="{{ route('doctors.index') }}" class="btn btn-secondary">Cancel</a>
+        <a href="{{ route('dokter.index') }}" class="btn btn-secondary">Cancel</a>
     </div>
 
-    <form action="{{ route('doctors.store') }}" method="post">
+    <form action="{{ route('dokter.store') }}" method="post">
         @csrf
 
         <div class="mb-3">

@@ -36,8 +36,8 @@
                                 <td>{{ $item->address }}</td>
                                 <td>
                                     <div class="d-flex gap-1">
-                                        <a href="{{ route('doctors.edit', $item->id) }}" class="btn btn-warning">Edit</a>
-                                        <form action="{{ route('doctors.destroy', $item->id) }}" method="post">
+                                        <a href="{{ route('dokter.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                                        <form action="{{ route('dokter.destroy', $item->id) }}" method="post">
                                             @csrf @method('DELETE')
                                             <button type="submit" class="btn btn-light">Delete</button>
                                         </form>
