@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/vendors/boxicons/css/boxicons.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="shortcut icon" href="assets2/images/logo.png" type="image/x-icon">
     @include('components.style')
 </head>
 
