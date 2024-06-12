@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container border-bottom py-3">
-        <a class="navbar-brand fw-bold d-flex align-items-center gap-2 text-pink" href=".">
-            <img src="assets2/images/logo.png" width="40" alt="Logo" />
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2 text-primary" href=".">
+            <img src="{{ url('assets2/images/logo.png') }}" width="40" alt="Logo" />
             Pet Shop
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">

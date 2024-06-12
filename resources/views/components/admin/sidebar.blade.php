@@ -1,6 +1,6 @@
 <div class="col-lg-2 bg-white min-h-lg-screen py-3 px-2 px-lg-3 sidebar">
     <div class="d-flex align-items-center justify-content-between">
-        <a href="{{ route('admin.dashboard') }}" class="d-flex align-items-center gap-2 fs-5 fw-bold text-pink">
+        <a href="{{ route('admin.dashboard') }}" class="d-flex align-items-center gap-2 fs-5 fw-bold text-primary">
             <img src="{{ url('assets2/images/logo.png') }}" style="width: 40px" alt="logo">
             <span>Pet Hospital</span>
         </a>
@@ -41,8 +41,8 @@
         </a>
 
         <p class="mt-4 mb-2 text-secondary fw-semibold fs-7">Setting</p>
-        <a href="#" class="link-menu btn">
-            <i class="bx bx-cog"></i> Setting
+        <a href="{{ route('homepage') }}" class="link-menu btn">
+            <i class="bx bx-cog"></i> Pet Hospital
         </a>
         <a href="{{ route('logout') }}" class="link-menu btn"
             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

@@ -54,6 +54,6 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-utama">Save New</button>
+        <button type="submit" class="btn btn-primary">Save New</button>
     </form>
 @endsection

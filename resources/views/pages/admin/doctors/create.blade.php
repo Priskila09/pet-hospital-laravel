@@ -2,8 +2,9 @@
 
 @section('content')
     <div class="d-flex align-items-center justify-content-between mb-5">
-        <h2 class="mb-0">Create New</h2>
-        <a href="{{ route('dokter.index') }}" class="btn btn-secondary">Cancel</a>
+        <h2 class="mb-0">Add new doctors</h2>
+        <a href="{{ route('dokter.index') }}" class="btn btn-light border">
+            <i class="bx bx-arrow-back"></i>Cancel</a>
     </div>
 
     <form action="{{ route('dokter.store') }}" method="post">
@@ -36,6 +37,6 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-utama">Save New</button>
+        <button type="submit" class="btn btn-primary">Save New</button>
     </form>
 @endsection

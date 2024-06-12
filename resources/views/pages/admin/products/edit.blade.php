@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-pink mt-3">Save Changes</button>
+                <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
             </form>
         </div>
     </div>

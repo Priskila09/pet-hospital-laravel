@@ -3,7 +3,8 @@
 @section('content')
     <div class="d-flex align-items-center justify-content-between mb-5">
         <h2 class="mb-0">Edit Doctor</h2>
-        <a href="{{ route('dokter.index') }}" class="btn btn-secondary">Cancel</a>
+        <a href="{{ route('dokter.index') }}" class="btn btn-secondary">
+            <i class="bx bx-arrow-back"></i> Cancel</a>
     </div>
 
     <form action="{{ route('dokter.update', $doctor->id) }}" method="post">
@@ -24,6 +25,6 @@
             <textarea name="address" id="address" cols="30" rows="3" class="form-control">{{ $doctor->address }}</textarea>
         </div>
 
-        <button type="submit" class="btn btn-utama">Save Changes</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
     </form>
 @endsection
