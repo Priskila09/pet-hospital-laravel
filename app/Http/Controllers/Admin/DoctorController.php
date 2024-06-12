@@ -40,7 +40,7 @@ class DoctorController extends Controller
         ]);
 
         Doctor::create($request->all());
-        return redirect()->route('doctors.index')->with('success', 'Doctor has been created!');
+        return redirect()->route('dokter.index')->with('success', 'Doctor has been created!');
     }
 
     /**
@@ -68,7 +68,7 @@ class DoctorController extends Controller
     public function update(Request $request, string $id)
     {
         Doctor::find($id)->update($request->all());
-        return redirect()->route('doctors.index')->with('success', 'Doctor has been updated!');
+        return redirect()->route('dokter.index')->with('success', 'Doctor has been updated!');
     }
 
     /**
