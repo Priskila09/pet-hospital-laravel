@@ -5,19 +5,28 @@ use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReservationController as AdminReservationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ShopController;
 use App\Http\Middleware\isAdmin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/')->middleware('auth')->group(function () {
-    Route::get('/', [HomeController::class, 'index']);
+    Route::get('/', [HomeController::class, 'index'])->name('homepage');
     Route::get('about-us', [HomeController::class, 'about'])->name('about');
 
-    Route::get('reservation', [ReservationController::class, 'index'])->name('reservation_page');
-    Route::post('reservation', [ReservationController::class, 'store']);
+    Route::get('shop', [ShopController::class, 'index'])->name('home.shop');
+    Route::get('shop/{id}', [ShopController::class, 'detail'])->name('home.shop.detail');
+
+
+    Route::get('keranjang', [OrderController::class, 'cart'])->name('home.cart');
+    Route::post('keranjang/{id}', [OrderController::class, 'addToCart'])->name('home.add-to-cart');
+
+    Route::get('reservation', [ReservationController::class, 'index'])->name('home.reservation');
+    Route::post('reservation', [ReservationController::class, 'store'])->name('home.reservation.store');
 
     Route::resource('profile', ProfileController::class);
     Route::resource('pets', PetController::class);
