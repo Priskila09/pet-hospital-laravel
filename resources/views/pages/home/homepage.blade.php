@@ -1,60 +1,91 @@
 @extends('layouts.home')
 
 @section('content')
-    <header class="header">
+    <header>
         <div class="container">
-            <p class="text-black mb-0">We Take Care Of</p>
-            <h1 class="header-title text-black">YOUR LITTLE PETS</h1>
-            <a href="contact.html" class="btn btn-utama px-4 py-3">Contact Us</a>
+            <img src="{{ url('assets2/images/logo.png') }}" width="70" class="d-block mx-auto mb-3" alt="Logo" />
+            <h1 class="text-center fw-bold mb-3">Pet Hospital</h1>
+            <p class="text-center text-secondary fs-5 mb-4">
+                We offer various products and
+                <br class="d-none d-lg-block" />
+                services for your dearest pets
+            </p>
+            <div class="d-flex justify-content-center">
+                <a href="{{ route('home.reservation') }}" class="btn btn-primary">
+                    <i class="bx bx-calendar"></i> Book Reservation
+                </a>
+            </div>
         </div>
     </header>
 
-    <section class="offer">
+    <section class="bg-light">
         <div class="container">
-            <p class="mb-2 text-center text-uppercase fw-semibold fs-5 subtitle">Our Services</p>
-            <h1 class="mb-3 text-center fw-semibold">What We Offer</h1>
-            <p class="mb-5 text-center text-secondary">
-                Our highly skilled professional associates love pets as much as you do, and we offer a wide range of pet
-                services.
-            </p>
+            <p class="text-center text-primary text-uppercase mb-0">Our Services</p>
+            <h2 class="text-center fw-bold mb-5">What We Offer</h2>
 
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card text-center border-0">
-                        <div class="card-body">
-                            <img src="assets/images/offer-1.jpeg" alt="" class="rounded-circle">
-                            <h3 class="text-center mt-2">Professional Grooming</h3>
-                            <p class="text-center text-secondary mt-2">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            <div class="row row-cols-2 row-cols-lg-4 g-3">
+                <div class="col">
+                    <div class="card card-service">
+                        <div class="card-body p-4">
+                            <i class="bx bx-store fs-1"></i>
+                            <h4 class="text-dark fw-semibold mt-2 mb-3">Shop</h4>
+                            <p class="text-secondary mb-0">
+                                Buy your pets' need anywhere and everytime
                             </p>
-                            <a href="{{ route('about') }}" class="btn btn-utama">See More</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card text-center border-0">
-                        <div class="card-body">
-                            <img src="assets/images/offer-2.jpeg" alt="" class="rounded-circle">
-                            <h3 class="text-center mt-2">Professional Grooming</h3>
-                            <p class="text-center text-secondary mt-2">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                <div class="col">
+                    <div class="card card-service">
+                        <div class="card-body p-4">
+                            <i class="bx bx-cut fs-1"></i>
+                            <h4 class="text-dark fw-semibold mt-2 mb-3">Grooming</h4>
+                            <p class="text-secondary mb-0">
+                                Pet care
                             </p>
-                            <a href="{{ route('about') }}" class="btn btn-utama">See More</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card text-center border-0">
-                        <div class="card-body">
-                            <img src="assets/images/offer-3.jpeg" alt="" class="rounded-circle">
-                            <h3 class="text-center mt-2">Professional Grooming</h3>
-                            <p class="text-center text-secondary mt-2">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                <div class="col">
+                    <div class="card card-service">
+                        <div class="card-body p-4">
+                            <i class="bx bx-plus-medical fs-1"></i>
+                            <h4 class="text-dark fw-semibold mt-2 mb-3">Pet Clinic</h4>
+                            <p class="text-secondary mb-0">
+                                Consult about your pet health
                             </p>
-                            <a href="{{ route('about') }}" class="btn btn-utama">See More</a>
                         </div>
                     </div>
                 </div>
+                <div class="col">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <p class="text-center text-primary text-uppercase mb-0">Shop</p>
+            <h2 class="text-center fw-bold mb-5">Pet Supplies</h2>
+
+            <div class="row row-cols-2 row-cols-lg-4 g-3">
+                @foreach ($products as $item)
+                    <div class="col">
+                        <a href="{{ route('home.shop.detail', $item->id) }}" class="card card-product">
+                            <div class="card-body">
+                                <img src="{{ url('storage/' . $item->images->first()->image) }}" alt="Produk 1">
+                                <h6 class="text-dark mb-2 mt-3">
+                                    {{ $item->name }}
+                                </h6>
+                                <p class="text-secondary mb-2">
+                                    Rp {{ number_format($item->price) }}
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+
+
             </div>
         </div>
     </section>

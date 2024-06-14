@@ -90,8 +90,8 @@
             </a>
 
             <p class="mt-4 mb-2 text-secondary fw-semibold fs-7">Setting</p>
-            <a href="#" class="link-menu btn">
-                <i class="bx bx-cog"></i> Setting
+            <a href="{{ route('homepage') }}" class="link-menu btn">
+                <i class="bx bx-cog"></i> Pet Hospital
             </a>
             <a href="{{ route('logout') }}" class="link-menu btn"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

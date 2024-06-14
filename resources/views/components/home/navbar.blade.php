@@ -18,10 +18,10 @@
                         href="{{ route('about') }}">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Shop</a>
+                    <a class="nav-link" href="{{ route('home.shop') }}">Shop</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-primary px-4" href="{{ route('reservation_page') }}">
+                    <a class="btn btn-primary px-4" href="{{ route('home.reservation') }}">
                         <i class="bx bx-calendar"></i>Reservation
                     </a>
                 </li>

@@ -57,16 +57,19 @@ class ProductController extends Controller
 
         $product = Product::find($id)->update($data); // UPDATE products SET .......... WHERE id=$id
         $product_slug = Str::slug($request->name);
-        foreach ($request->file('images') as $key => $image) {
-            // $image_path = $image->store('products', 'public');
-            $image_path = $image->storeAs('products', 'produk-' . $product_slug . '-' . date('d-m-y-h-i-s') . '-' . ++$key . '.jpg', 'public');
-            ProductImage::create([
-                'product_id' => $id,
-                'image' => $image_path
-            ]);
+        if ($request->images != null) {
+            foreach ($request->file('images') as $key => $image) {
+                // $image_path = $image->store('products', 'public');
+                $image_path = $image->storeAs('products', 'produk-' . $product_slug . '-' . date('d-m-y-h-i-s') . '-' . ++$key . '.jpg', 'public');
+                ProductImage::create([
+                    'product_id' => $id,
+                    'image' => $image_path
+                ]);
+            }
         }
 
-        return redirect()->route('produk.edit', $id)->with('success', 'Produk berhasil diedit');
+
+        return redirect()->route('produk.index', $id)->with('success', 'Produk berhasil diedit');
     }
 
     public function destroy($id)
