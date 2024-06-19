@@ -24,18 +24,22 @@
                         <h5>Rp. {{ number_format($product->price) }}</h5>
                     @endif
                     @if ($product->stock == 0)
-                        <p class="text-danger">Produk Kosong</p>
+                        <p class="text-danger">Product is Empty</p>
                     @else
                         <p class="text-success">In Stock: {{ $product->stock }}</p>
                     @endif
                     <p class="text-secondary mb-5">{{ $product->description }}</p>
-
-                    <form action="{{ route('home.add-to-cart', $product->id) }}" method="post">
+                    <livewire:add-to-cart :$product />
+                    {{-- <form action="{{ route('home.add-to-cart', $product->id) }}" method="post">
                         @csrf
-                        <button type="submit" class="btn btn-primary py-3">
-                            <i class="bx bx-cart"></i> Add to Cart
-                        </button>
-                    </form>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="number" value="1" class="form-control py-3 w-25">
+                            <button type="submit" class="btn btn-primary py-3">
+                                <i class="bx bx-cart"></i> Add to Cart
+                            </button>
+                        </div>
+
+                    </form> --}}
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@
     <section>
         <div class="container">
             <p class="text-center text-primary text-uppercase mb-0">Shop</p>
-            <h2 class="text-center fw-bold mb-5">Produk Hewan Peliharaan</h2>
+            <h2 class="text-center fw-bold mb-5">Pet Supplies</h2>
 
             <div class="row row-cols-2 row-cols-lg-4 g-3">
                 @foreach ($products as $item)
