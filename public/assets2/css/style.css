@@ -71,7 +71,7 @@ a {
     border-color: var(--primary-alt-color);
 }
 
-.bx-plus {
+/* .bx-plus {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     color: var(--white-color);
@@ -80,9 +80,9 @@ a {
 .bx-plus:hover {
     background-color: var(--primary-alt-color);
     border-color: var(--primary-alt-color);
-}
+} */
 
-.bx-trash {
+/* .bx-trash {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     color: var(--white-color);
@@ -91,7 +91,7 @@ a {
 .bx-trash:hover {
     background-color: var(--primary-alt-color);
     border-color: var(--primary-alt-color);
-}
+} */
 
 header,
 section {

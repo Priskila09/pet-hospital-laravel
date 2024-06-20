@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="d-flex align-items-center justify-content-between mb-5">
-        <h2 class="mb-0">Produk</h2>
-        <a href="{{ route('produk.create') }}" class="btn btn-primary">Tambah Produk Baru</a>
+        <h2 class="mb-0">Product</h2>
+        <a href="{{ route('produk.create') }}" class="btn btn-primary">Add New Product</a>
     </div>
 
     @if (session('success'))
@@ -20,11 +20,11 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Gambar</th>
-                            <th>Nama Produk</th>
-                            <th>Harga</th>
-                            <th>Stok</th>
-                            <th>Deskripsi</th>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Description</th>
                             <th></th>
                         </tr>
                     </thead>

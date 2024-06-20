@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    // cart, addToCart, checkout
+
     public function cart()
     {
         $cart = Order::where('user_id', Auth::user()->id)
@@ -22,40 +23,39 @@ class OrderController extends Controller
         ]);
     }
 
-    public function addToCart($id)
+    public function confirm()
     {
-        $product = Product::find($id);
-        $cart = Order::where('user_id', Auth::user()->id)
-            ->where('status', 'Keranjang')->first();
+        $cart = Order::where('user_id', Auth::user()->id)->where('status', 'Keranjang')->first();
 
-        if ($cart == null) {
-            // buat cart
-            $cart = Order::create([
-                'user_id' => Auth::user()->id,
-                'status' => 'Keranjang'
-            ]);
+        return view('pages.home.shop.confirm', [
+            'title' => 'Konfirmasi Pesanan',
+            'cart' => $cart
+        ]);
+    }
 
-            OrderDetail::create([
-                'order_id' => $cart->id,
-                'product_id' => $product->id,
-                'quantity' => 1,
-                'price' => $product->discount > 0 ? $product->discount : $product->price
-            ]);
-        } else {
-            // tambah keranjang
-            $cartDetail = OrderDetail::where('product_id', $product->id)->where('order_id', $cart->id)->first();
-            if ($cartDetail != null) {
-                $cartDetail->update(['quantity' => $cartDetail->quantity + 1]);
-            } else {
-                OrderDetail::create([
-                    'order_id' => $cart->id,
-                    'product_id' => $product->id,
-                    'quantity' => 1,
-                    'price' => $product->discount > 0 ? $product->discount : $product->price
-                ]);
-            }
+    public function confirmStore(Request $request)
+    {
+        $cart = Order::where('user_id', Auth::user()->id)->where('status', 'Keranjang')->first();
+
+        foreach ($cart->details as $item) {
+            $product = Product::find($item->product_id);
+            $product->stock -= $item->quantity;
+            $product->save();
         }
 
-        return redirect()->route('home.cart');
+        $user = User::find(Auth::user()->id);
+        $user->update([
+            'address' => $request->address,
+            'phone_number' => $request->phone_number
+        ]);
+
+        $cart->update([
+            'status' => 'Cek Pembayaran',
+            'address' => $request->address,
+            'total_amount' => $request->total,
+            'notes' => $request->notes,
+            'proof_payment' => $request->proof_payment->storeAs('proof_payment', 'pesanan-' . $cart->id . '-' . date('d-m-y-h-i-s') . '.jpg', 'public')
+        ]);
+        return redirect()->route('homepage');
     }
 }
