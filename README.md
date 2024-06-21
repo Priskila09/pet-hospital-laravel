@@ -38,7 +38,7 @@ To set up the Pet Hospital Management System for development or testing environm
     ```
 2. Navigate to the project directory:
     ```
-    cd pet-hospital-system
+    cd pet-hospital-laravel
     ```
 3. Install dependencies:
     ```
@@ -77,4 +77,4 @@ Contributions are welcome, and please follow the guidelines below:
 
 Contact
 
-For support or inquiries, please email us at support@pethospital.com.
+For support or inquiries, please email us at priskila2703@gmail.com.
