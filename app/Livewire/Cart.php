@@ -7,8 +7,7 @@ use Livewire\Component;
 
 class Cart extends Component
 {
-    public $cart;
-    public $subtotal;
+    public $cart, $subtotal;
 
     public function increment($id)
     {
@@ -23,9 +22,11 @@ class Cart extends Component
     public function decrement($id)
     {
         $orderDetail = OrderDetail::find($id);
-        $orderDetail->quantity -= 1;
-        $orderDetail->save();
-        $this->mount($this->cart);
+        if ($orderDetail->quantity > 1) {
+            $orderDetail->quantity -= 1;
+            $orderDetail->save();
+            $this->mount($this->cart);
+        }
     }
 
     public function destroy($id)
@@ -36,6 +37,8 @@ class Cart extends Component
 
     public function mount($cart)
     {
+
+
         $this->cart = $cart;
         $this->subtotal = OrderDetail::where('order_id', $this->cart->id)->get()->sum(function ($item) {
             return $item->quantity * $item->price;

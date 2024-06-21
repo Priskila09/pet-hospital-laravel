@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h2 class="mb-5">Reservasi</h2>
+    <h2 class="mb-5">Reservation</h2>
 
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -17,11 +17,11 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nama Pelanggan</th>
-                            <th>Tanggal Reservasi</th>
-                            <th>Jam</th>
-                            <th>Dokter</th>
-                            <th>Pesan</th>
+                            <th>Customer Name</th>
+                            <th>Resevation Date</th>
+                            <th>Time</th>
+                            <th>Doctor</th>
+                            <th>Message</th>
                             <th>Status</th>
                             <th></th>
                         </tr>

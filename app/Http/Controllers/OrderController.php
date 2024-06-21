@@ -56,6 +56,7 @@ class OrderController extends Controller
             'notes' => $request->notes,
             'proof_payment' => $request->proof_payment->storeAs('proof_payment', 'pesanan-' . $cart->id . '-' . date('d-m-y-h-i-s') . '.jpg', 'public')
         ]);
+        session()->flash('success', 'Your order has been made successfully!');
         return redirect()->route('homepage');
     }
 }

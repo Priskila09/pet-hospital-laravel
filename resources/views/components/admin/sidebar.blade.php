@@ -20,7 +20,8 @@
             class="link-menu btn {{ request()->is('admin/produk*') ? 'active' : '' }}">
             <i class='bx bx-box'></i> Product
         </a>
-        <a href="#" class="link-menu btn">
+        <a href="{{ route('orders.index') }}"
+            class="link-menu btn {{ request()->is('admin/orders*') ? 'active' : '' }}">
             <i class='bx bx-store'></i> Order
         </a>
 
@@ -32,9 +33,6 @@
         <a href="{{ route('reservasi.index') }}"
             class="link-menu btn {{ request()->is('admin/reservasi*') ? 'active' : '' }}">
             <i class="bx bxs-calendar"></i> Reservation
-        </a>
-        <a href="#" class="link-menu btn">
-            <i class="bx bx-history"></i> History
         </a>
         <a href="#" class="link-menu btn">
             <i class="bx bxs-user"></i> Customers
@@ -69,7 +67,8 @@
                 class="link-menu btn {{ request()->is('admin/produk*') ? 'active' : '' }}">
                 <i class='bx bx-box'></i> Product
             </a>
-            <a href="#" class="link-menu btn">
+            <a href="{{ route('orders.index') }}"
+                class="link-menu btn {{ request()->is('admin/orders*') ? 'active' : '' }}">
                 <i class='bx bx-store'></i> Order
             </a>
 
@@ -81,9 +80,6 @@
             <a href="{{ route('reservasi.index') }}"
                 class="link-menu btn {{ request()->is('admin/reservasi*') ? 'active' : '' }}">
                 <i class="bx bxs-calendar"></i> Reservation
-            </a>
-            <a href="#" class="link-menu btn">
-                <i class="bx bx-history"></i> History
             </a>
             <a href="#" class="link-menu btn">
                 <i class="bx bxs-user"></i> Customer

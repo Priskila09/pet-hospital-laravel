@@ -21,40 +21,50 @@
                     <a class="nav-link {{ request()->routeIs('home.shop') ? 'active' : '' }}"
                         href="{{ route('home.shop') }}">Shop</a>
                 </li>
-                <li class="nav-item">
-                    <a class="btn btn-light border" href="{{ route('home.cart') }}">
-                        <i class="bx bx-cart"></i>Cart
-                    </a>
-                </li>
+
                 <li class="nav-item">
                     <a class="btn btn-primary px-4" href="{{ route('home.reservation') }}">
                         <i class="bx bx-calendar"></i>Reservation
                     </a>
                 </li>
+                @auth
+                    <li class="nav-item">
+                        <a class="btn btn-light border" href="{{ route('home.cart') }}">
+                            <i class="bx bx-cart"></i> Cart
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-light border px-4" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bx bx-user"></i> Hi, {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            @if (Auth::user()->roles == 'Admin')
+                                <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Admin Dashboard</a></li>
+                            @endif
+                            <li><a class="dropdown-item" href="#">Order History</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="{{ route('profile.index') }}" class="dropdown-item">
+                                    Profile Setting
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Log Out
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endauth
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Hi, {{ Auth::user()->name }}
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="{{ route('profile.index') }}" class="dropdown-item">
-                                Profile Setting
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                Log Out
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </li>
-                    </ul>
-                </li>
             </ul>
         </div>
     </div>
