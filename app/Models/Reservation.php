@@ -10,12 +10,17 @@ class Reservation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'customer_name', 'date_of_reservation', 'time_of_reservation',
+        'user_id', 'date_of_reservation', 'time_of_reservation',
         'doctor_id', 'messages', 'status'
     ];
 
     public function doctor()
     {
         return $this->belongsTo(Doctor::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

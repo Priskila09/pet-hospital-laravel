@@ -40,7 +40,7 @@ class ProductController extends Controller
             ]);
         }
 
-        return redirect()->route('produk.index')->with('success', 'Produk berhasil ditambahkan');
+        return redirect()->route('produk.index')->with('success', 'Successfully added product');
     }
 
     public function edit($id)
@@ -69,13 +69,13 @@ class ProductController extends Controller
         }
 
 
-        return redirect()->route('produk.index', $id)->with('success', 'Produk berhasil diedit');
+        return redirect()->route('produk.index', $id)->with('success', 'Successfully edited product');
     }
 
     public function destroy($id)
     {
         Product::find($id)->delete();
-        return redirect()->route('produk.index')->with('success', 'Produk berhasil dihapus');
+        return redirect()->route('produk.index')->with('success', 'Successfully delete product');
     }
 
     public function destroy_image($id)

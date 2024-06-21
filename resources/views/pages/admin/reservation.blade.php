@@ -18,7 +18,7 @@
                         <tr>
                             <th>#</th>
                             <th>Customer Name</th>
-                            <th>Resevation Date</th>
+                            <th>Reservation Date</th>
                             <th>Time</th>
                             <th>Doctor</th>
                             <th>Message</th>

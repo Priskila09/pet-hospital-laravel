@@ -29,6 +29,8 @@ Route::prefix('/')->middleware('auth')->group(function () {
     Route::get('keranjang/konfirmasi', [OrderController::class, 'confirm'])->name('home.cart.confirm');
     Route::post('keranjang/konfirmasi', [OrderController::class, 'confirmStore'])->name('home.cart.confirm.store');
 
+    Route::get('order-history', [OrderController::class, 'history'])->name('home.order.history');
+
     Route::get('reservation', [ReservationController::class, 'index'])->name('home.reservation');
     Route::post('reservation', [ReservationController::class, 'store'])->name('home.reservation.store');
 

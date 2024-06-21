@@ -165,6 +165,40 @@
                     </div>
                 </div>
             </div>
+
+            <h5 class="fw-semibold mb-3">Reservation History</h5>
+            <div class="card mb-5">
+                <div class="card-body p-4">
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Reservation Date</th>
+                                    <th>Reservation Time</th>
+                                    <th>Doctor Name</th>
+                                    <th>Message</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Auth::user()->reservations as $item)
+                                    <tr class="align-middle">
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->date_of_reservation }}</td>
+                                        <td>{{ $item->time_of_reservation }}WIB</td>
+                                        <td>{{ $item->doctor->name }}</td>
+                                        <td>{{ $item->messages }}</td>
+                                    </tr>
+
+                                    >
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

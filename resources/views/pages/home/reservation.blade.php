@@ -7,9 +7,11 @@
         <form action="{{ url('reservation') }}" method="post">
             @csrf
 
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             <div class="mb-3">
                 <label for="name">Name</label>
-                <input type="text" name="customer_name" class="form-control" id="">
+                <input type="text" name="customer_name" value="{{ Auth::user()->name }}" class="form-control"
+                    id="" readonly>
             </div>
             <div class="mb-3">
                 <label for="date">Date</label>

@@ -21,6 +21,7 @@
                             <th>Order Information</th>
                             <th>Total Price</th>
                             <th>Notes</th>
+                            <th>Proof Of Payment</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
@@ -44,6 +45,14 @@
                                 </td>
                                 <td>Rp. {{ number_format($item->total_amount) }}</td>
                                 <td>{{ $item->notes }}</td>
+                                <td>
+                                    @if ($item->proof_payment)
+                                        <img src="{{ asset('storage/' . $item->proof_payment) }}" alt="Proof of Payment"
+                                            class="img-fluid" style="max-width: 100px;">
+                                    @else
+                                        No proof provided
+                                    @endif
+                                </td>
                                 <td>{{ $item->status }}</td>
                                 <td>
                                     <div class="d-flex gap-1">
@@ -104,7 +113,8 @@
             </div>
         </div>
     </div>
-
+    {{-- 
+    <script src="{{ url('assets/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script> --}}
     @foreach ($orders as $item)
         <div class="modal fade" id="infoCustomer{{ $item->id }}" tabindex="-1"
             aria-labelledby="infoCustomer{{ $item->id }}Label" aria-hidden="true">

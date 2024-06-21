@@ -54,9 +54,17 @@ class OrderController extends Controller
             'address' => $request->address,
             'total_amount' => $request->total,
             'notes' => $request->notes,
-            'proof_payment' => $request->proof_payment->storeAs('proof_payment', 'pesanan-' . $cart->id . '-' . date('d-m-y-h-i-s') . '.jpg', 'public')
+            'proof_payment' => $request->proof_payment->storeAs('proof-payment', 'pesanan-' . $cart->id . '-' . date('d-m-y-h-i-s') . '.jpg', 'public')
         ]);
         session()->flash('success', 'Your order has been made successfully!');
-        return redirect()->route('homepage');
+        return redirect()->route('home.order.history');
+    }
+
+    public function history()
+    {
+        return view('pages.home.shop.history', [
+            'title' => 'Order History',
+            'orders' => Order::where('user_id', Auth::user()->id)->where('status', '!=', 'Keranjang')->get()
+        ]);
     }
 }

@@ -34,10 +34,6 @@
             class="link-menu btn {{ request()->is('admin/reservasi*') ? 'active' : '' }}">
             <i class="bx bxs-calendar"></i> Reservation
         </a>
-        <a href="#" class="link-menu btn">
-            <i class="bx bxs-user"></i> Customers
-        </a>
-
         <p class="mt-4 mb-2 text-secondary fw-semibold fs-7">Setting</p>
         <a href="{{ route('homepage') }}" class="link-menu btn">
             <i class="bx bx-cog"></i> Pet Hospital
@@ -81,10 +77,6 @@
                 class="link-menu btn {{ request()->is('admin/reservasi*') ? 'active' : '' }}">
                 <i class="bx bxs-calendar"></i> Reservation
             </a>
-            <a href="#" class="link-menu btn">
-                <i class="bx bxs-user"></i> Customer
-            </a>
-
             <p class="mt-4 mb-2 text-secondary fw-semibold fs-7">Setting</p>
             <a href="{{ route('homepage') }}" class="link-menu btn">
                 <i class="bx bx-cog"></i> Pet Hospital

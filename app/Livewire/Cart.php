@@ -40,9 +40,13 @@ class Cart extends Component
 
 
         $this->cart = $cart;
-        $this->subtotal = OrderDetail::where('order_id', $this->cart->id)->get()->sum(function ($item) {
-            return $item->quantity * $item->price;
-        });
+        if ($this->cart == null) {
+            $this->subtotal = 0;
+        } else {
+            $this->subtotal = OrderDetail::where('order_id', $this->cart->id)->get()->sum(function ($item) {
+                return $item->quantity * $item->price;
+            });
+        }
     }
 
     public function render()
