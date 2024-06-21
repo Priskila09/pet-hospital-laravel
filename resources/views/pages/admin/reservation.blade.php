@@ -31,7 +31,7 @@
                         @foreach ($reservations as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->customer_name }}</td>
+                                <td>{{ $item->user->name }}</td>
                                 <td>{{ $item->date_of_reservation }}</td>
                                 <td>{{ $item->time_of_reservation }}</td>
                                 <td>{{ $item->doctor->name }}</td>
